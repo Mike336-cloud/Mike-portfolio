@@ -1,4 +1,4 @@
-import { ArrowDown, Github, Linkedin, Sparkles } from 'lucide-react';
+import { ArrowDown, Github, Linkedin } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { PROFILE } from '../data/portfolio';
 
