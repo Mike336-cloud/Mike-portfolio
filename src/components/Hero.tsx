@@ -35,7 +35,6 @@ export default function Hero() {
           {/* Status badge removed as per request */}
 
           <motion.h1 custom={1} variants={fadeUp} initial="hidden" animate="visible" className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight text-slate-900 dark:text-white">
-            Hi, I'm{' '}
             <span className="gradient-text">{PROFILE.name}</span>
           </motion.h1>
 

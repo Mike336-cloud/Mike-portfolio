@@ -4,27 +4,22 @@
 
 export const PROFILE = {
   name: 'Michael Kariuki',
-  brand: 'MIKE',           // Short brand name used in navbar/footer
+  brand: 'MIKE',
   title: 'Full-Stack Developer',
   tagline:
     'I craft fast, accessible, and beautiful web experiences — from pixel-perfect UIs to scalable APIs. Passionate about clean code, great DX, and products that delight users.',
   status: 'Available for new opportunities',
   email: 'njugunamichaelkariuki@gmail.com',
-  location: 'Mombasa, Kenya (Remote OK)',
+  phone: '+254 715 870 792', 
+  location: 'Mombasa, Kenya',
   yearsExperience: '2+',
   bio: [
     `I'm a full-stack developer with experience building scalable web applications that users love. I specialize in React, Next.js frontends, and robust backend architectures with Node.js and databases like PostgreSQL, with a strong focus on performance and clean architecture.`,
     "When I'm not shipping features, I contribute to open-source projects, write technical articles, and mentor junior developers. I believe the best software is built at the intersection of great engineering and great design.",
   ],
-  stats: [
-    { value: '2+', label: 'Projects shipped' },
-    { value: '100+', label: 'Users reached' },
-    { value: '3★', label: 'Client rating' },
-  ],
   socials: {
     github: 'https://github.com/Mike336-cloud',
     linkedin: 'https://linkedin.com',
-    twitter: 'https://twitter.com',
   },
 };
 
@@ -132,6 +127,5 @@ export const TIMELINE = [
 export const SOCIAL_LINKS = [
   { label: 'GitHub', href: 'https://github.com/Mike333-cloud', icon: 'Github' },
   { label: 'LinkedIn', href: 'https://linkedin.com/in/michael-kariuki', icon: 'Linkedin' },
-  { label: 'Twitter', href: 'https://twitter.com', icon: 'Twitter' },
   { label: 'Email', href: 'mailto:njugunamichaelkariuki@gmail.com', icon: 'Mail' },
 ];

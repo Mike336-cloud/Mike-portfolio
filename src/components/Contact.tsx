@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { Mail, MapPin, Send, CircleCheck as CheckCircle, Github, Linkedin, Twitter } from 'lucide-react';
+import { Mail, MapPin, Phone, Send, CircleCheck as CheckCircle, Github, Linkedin, Twitter } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { PROFILE, SOCIAL_LINKS } from '../data/portfolio';
 
@@ -26,11 +26,34 @@ export default function Contact() {
     reset,
   } = useForm<FormValues>({ resolver: zodResolver(schema) });
 
-  const onSubmit = async (_data: FormValues) => {
-    await new Promise(r => setTimeout(r, 1200));
-    setSubmitted(true);
-    reset();
-    setTimeout(() => setSubmitted(false), 5000);
+  const onSubmit = async (data: FormValues) => {
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: '1e91b3fb-b414-4fc4-972e-75eab476df7b',
+          name: data.name,
+          email: data.email,
+          message: data.message,
+        }),
+      });
+      const result = await response.json();
+      if (result.success) {
+        setSubmitted(true);
+        reset();
+        setTimeout(() => setSubmitted(false), 5000);
+      } else {
+        console.error('Form submission error:', result);
+        alert('Something went wrong. Please try again later.');
+      }
+    } catch (error) {
+      console.error('Network error:', error);
+      alert('Network error. Please try again later.');
+    }
   };
 
   return (
@@ -78,6 +101,24 @@ export default function Contact() {
                   </a>
                 </div>
               </div>
+              
+              {/* @ts-ignore - Phone added dynamically */}
+              {PROFILE.phone && (
+                <div className="flex items-center gap-3 text-slate-700 dark:text-slate-300">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-5 h-5 text-emerald-500" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 font-medium uppercase tracking-wide">Phone</p>
+                    {/* @ts-ignore */}
+                    <a href={`tel:${PROFILE.phone.replace(/\s+/g, '')}`} className="font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                      {/* @ts-ignore */}
+                      {PROFILE.phone}
+                    </a>
+                  </div>
+                </div>
+              )}
+
               <div className="flex items-center gap-3 text-slate-700 dark:text-slate-300">
                 <div className="w-10 h-10 rounded-xl bg-rose-50 dark:bg-rose-950/30 flex items-center justify-center flex-shrink-0">
                   <MapPin className="w-5 h-5 text-rose-500" aria-hidden="true" />

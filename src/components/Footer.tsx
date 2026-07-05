@@ -1,4 +1,4 @@
-import { Code as Code2, Github, Linkedin, Twitter, Mail, Heart } from 'lucide-react';
+import { Github, Linkedin, Twitter, Mail, Heart } from 'lucide-react';
 import { NAV_LINKS, PROFILE, SOCIAL_LINKS } from '../data/portfolio';
 
 const ICON_MAP = { Github, Linkedin, Twitter, Mail };
@@ -23,7 +23,6 @@ export default function Footer() {
               className="flex items-center gap-2 font-bold text-xl text-white mb-3 hover:text-primary-400 transition-colors"
               aria-label="Alex Rivera — back to top"
             >
-              <Code2 className="w-5 h-5 text-primary-400" aria-hidden="true" />
               {PROFILE.brand}<span className="text-primary-400">.</span>
             </a>
             <p className="text-sm leading-relaxed max-w-xs">

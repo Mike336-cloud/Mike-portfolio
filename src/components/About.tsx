@@ -62,7 +62,6 @@ export default function About() {
               {[
                 { icon: MapPin, label: PROFILE.location, color: 'text-rose-500' },
                 { icon: Calendar, label: `${PROFILE.yearsExperience} Years Experience`, color: 'text-primary-500' },
-                { icon: Coffee, label: 'Open to Remote', color: 'text-amber-500' },
               ].map(({ icon: Icon, label, color }) => (
                 <div
                   key={label}
@@ -74,15 +73,6 @@ export default function About() {
               ))}
             </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 pt-2">
-              {PROFILE.stats.map(({ value, label }) => (
-                <div key={label} className="text-center p-4 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700">
-                  <div className="text-2xl font-extrabold gradient-text">{value}</div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">{label}</div>
-                </div>
-              ))}
-            </div>
           </motion.div>
         </div>
       </div>
