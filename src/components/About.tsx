@@ -33,7 +33,7 @@ export default function About() {
           >
             <div className="relative">
               <div className="w-80 sm:w-96 lg:w-[26rem] aspect-[3/4] rounded-[3rem] overflow-hidden shadow-2xl shadow-primary-500/20 animate-float bg-slate-200 dark:bg-slate-800">
-                <img src="/profile.jpg" alt="Michael Kariuki" className="w-full h-full object-cover object-top" />
+                <img src={`${import.meta.env.BASE_URL}profile.jpg`} alt="Michael Kariuki" className="w-full h-full object-cover object-top" />
               </div>
               {/* Floating badge */}
               <div className="absolute -bottom-4 -right-4 bg-white dark:bg-slate-900 rounded-2xl px-4 py-2.5 shadow-lg border border-slate-200 dark:border-slate-700 flex items-center gap-2">
