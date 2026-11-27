@@ -58,7 +58,7 @@ export default function Projects() {
                 <div className="absolute inset-0 bg-black/10" />
                 <div className="absolute bottom-4 left-4">
                   {project.featured && (
-                    <span className="px-2.5 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-semibold rounded-full border border-white/30">
+                    <span className="px-2.5 py-1 bg-slate-900/85 backdrop-blur-sm text-white text-xs font-semibold rounded-full border border-white/20">
                       Featured
                     </span>
                   )}

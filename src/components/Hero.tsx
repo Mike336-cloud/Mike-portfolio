@@ -84,7 +84,7 @@ export default function Hero() {
             >
               <Linkedin className="w-5 h-5" />
             </a>
-            <span className="text-slate-300 dark:text-slate-600 text-sm pl-1">Find me online</span>
+            <span className="text-slate-600 dark:text-slate-400 text-sm pl-1">Find me online</span>
           </motion.div>
         </div>
       </div>
