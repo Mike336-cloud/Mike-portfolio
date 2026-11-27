@@ -9,11 +9,12 @@ interface Props {
   onThemeToggle: () => void;
 }
 
+const SECTION_IDS = ['hero', ...NAV_LINKS.map(l => l.href.slice(1))];
+
 export default function Navbar({ theme, onThemeToggle }: Props) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const sectionIds = NAV_LINKS.map(l => l.href.slice(1));
-  const activeId = useScrollSpy(sectionIds);
+  const activeId = useScrollSpy(SECTION_IDS);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -22,13 +23,16 @@ export default function Navbar({ theme, onThemeToggle }: Props) {
   }, []);
 
   const handleNavClick = (href: string) => {
+    const wasOpen = menuOpen;
     setMenuOpen(false);
-    setTimeout(() => {
-      const el = document.querySelector(href);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 150);
+    const scrollToTarget = () => {
+      document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+    };
+    if (wasOpen) {
+      setTimeout(scrollToTarget, 150);
+    } else {
+      scrollToTarget();
+    }
   };
 
   return (
@@ -125,6 +129,7 @@ export default function Navbar({ theme, onThemeToggle }: Props) {
                   <a
                     href={link.href}
                     onClick={e => { e.preventDefault(); handleNavClick(link.href); }}
+                    aria-current={activeId === link.href.slice(1) ? 'location' : undefined}
                     className={`block px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
                       activeId === link.href.slice(1)
                         ? 'bg-primary-50 dark:bg-primary-950/50 text-primary-600 dark:text-primary-400'

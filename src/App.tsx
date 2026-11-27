@@ -1,3 +1,4 @@
+import { MotionConfig } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -12,7 +13,7 @@ function App() {
   const { theme, toggle } = useTheme();
 
   return (
-    <>
+    <MotionConfig reducedMotion="user">
       <Navbar theme={theme} onThemeToggle={toggle} />
       <main>
         <Hero />
@@ -23,7 +24,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
-    </>
+    </MotionConfig>
   );
 }
 

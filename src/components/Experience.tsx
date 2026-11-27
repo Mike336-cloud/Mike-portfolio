@@ -4,7 +4,7 @@ import { TIMELINE } from '../data/portfolio';
 
 export default function Experience() {
   return (
-    <section id="experience" className="section-padding bg-white dark:bg-slate-950">
+    <section id="experience" className="section-padding overflow-x-hidden bg-white dark:bg-slate-950">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 32 }}
