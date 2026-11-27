@@ -44,18 +44,13 @@ export default function Projects() {
               className={`card overflow-hidden group flex flex-col ${index === 0 ? 'lg:col-span-2' : 'lg:col-span-1'}`}
             >
               {/* Image / Gradient placeholder */}
-              <div
-                className={`h-48 relative overflow-hidden bg-slate-200 dark:bg-slate-800`}
-                aria-hidden="true"
-              >
-                {/* @ts-ignore - project.image is dynamically added */}
+              <div className="h-48 relative overflow-hidden bg-slate-200 dark:bg-slate-800">
                 {project.image ? (
-                  // @ts-ignore
                   <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 ) : (
                   <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient}`} />
                 )}
-                <div className="absolute inset-0 bg-black/10" />
+                <div className="absolute inset-0 bg-black/10" aria-hidden="true" />
                 <div className="absolute bottom-4 left-4">
                   {project.featured && (
                     <span className="px-2.5 py-1 bg-slate-900/85 backdrop-blur-sm text-white text-xs font-semibold rounded-full border border-white/20">
@@ -64,8 +59,8 @@ export default function Projects() {
                   )}
                 </div>
                 {/* Decorative circles */}
-                <div className="absolute -top-8 -right-8 w-32 h-32 bg-white/10 rounded-full" />
-                <div className="absolute -bottom-4 right-8 w-20 h-20 bg-white/10 rounded-full" />
+                <div className="absolute -top-8 -right-8 w-32 h-32 bg-white/10 rounded-full" aria-hidden="true" />
+                <div className="absolute -bottom-4 right-8 w-20 h-20 bg-white/10 rounded-full" aria-hidden="true" />
               </div>
 
               {/* Content */}

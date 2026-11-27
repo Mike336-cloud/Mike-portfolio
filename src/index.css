@@ -22,7 +22,7 @@
   }
 
   .section-padding {
-    @apply py-20 lg:py-28;
+    @apply py-20 lg:py-28 scroll-mt-16;
   }
 
   .btn-primary {
@@ -73,4 +73,15 @@
   .animation-delay-600 { animation-delay: 600ms; }
   .animation-delay-2000 { animation-delay: 2s; }
   .animation-delay-4000 { animation-delay: 4s; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-blob,
+  .animate-float {
+    animation: none;
+  }
 }

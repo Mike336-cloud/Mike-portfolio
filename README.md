@@ -22,7 +22,7 @@ A modern, fast, and responsive personal developer portfolio built with React, Vi
    ```bash
    npm run dev
    ```
-   The site will be available at `http://localhost:5173`.
+   The site will be available at `http://localhost:3000/Mike-portfolio/`.
 
 3. **Build for Production**
    ```bash

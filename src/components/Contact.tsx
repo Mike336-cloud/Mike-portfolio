@@ -18,6 +18,7 @@ type FormValues = z.infer<typeof schema>;
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const {
     register,
@@ -27,6 +28,7 @@ export default function Contact() {
   } = useForm<FormValues>({ resolver: zodResolver(schema) });
 
   const onSubmit = async (data: FormValues) => {
+    setSubmitError(null);
     try {
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
@@ -41,6 +43,11 @@ export default function Contact() {
           message: data.message,
         }),
       });
+      if (!response.ok) {
+        console.error('Form submission error:', response.status, response.statusText);
+        setSubmitError('Something went wrong sending your message. Please try again or email me directly.');
+        return;
+      }
       const result = await response.json();
       if (result.success) {
         setSubmitted(true);
@@ -48,16 +55,16 @@ export default function Contact() {
         setTimeout(() => setSubmitted(false), 5000);
       } else {
         console.error('Form submission error:', result);
-        alert('Something went wrong. Please try again later.');
+        setSubmitError('Something went wrong sending your message. Please try again later.');
       }
     } catch (error) {
       console.error('Network error:', error);
-      alert('Network error. Please try again later.');
+      setSubmitError('Network error. Please check your connection and try again.');
     }
   };
 
   return (
-    <section id="contact" className="section-padding bg-slate-50 dark:bg-slate-900/50">
+    <section id="contact" className="section-padding overflow-x-hidden bg-slate-50 dark:bg-slate-900/50">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 32 }}
@@ -102,7 +109,6 @@ export default function Contact() {
                 </div>
               </div>
               
-              {/* @ts-ignore - Phone added dynamically */}
               {PROFILE.phone && (
                 <div className="flex items-center gap-3 text-slate-700 dark:text-slate-300">
                   <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 flex items-center justify-center flex-shrink-0">
@@ -110,9 +116,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-xs text-slate-500 dark:text-slate-400 font-medium uppercase tracking-wide">Phone</p>
-                    {/* @ts-ignore */}
                     <a href={`tel:${PROFILE.phone.replace(/\s+/g, '')}`} className="font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
-                      {/* @ts-ignore */}
                       {PROFILE.phone}
                     </a>
                   </div>
@@ -166,6 +170,8 @@ export default function Contact() {
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
+                  role="status"
+                  aria-live="polite"
                   className="flex flex-col items-center text-center py-8 gap-4"
                 >
                   <CheckCircle className="w-16 h-16 text-emerald-500" />
@@ -244,6 +250,15 @@ export default function Contact() {
                       </p>
                     )}
                   </div>
+
+                  {submitError && (
+                    <p
+                      role="alert"
+                      className="text-sm text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-800/50 rounded-xl px-4 py-3"
+                    >
+                      {submitError}
+                    </p>
+                  )}
 
                   <button
                     type="submit"

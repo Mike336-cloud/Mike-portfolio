@@ -21,7 +21,7 @@ export default function Footer() {
               href="#hero"
               onClick={e => { e.preventDefault(); handleNavClick('#hero'); }}
               className="flex items-center gap-2 font-bold text-xl text-white mb-3 hover:text-primary-400 transition-colors"
-              aria-label="Alex Rivera — back to top"
+              aria-label={`${PROFILE.name} — back to top`}
             >
               {PROFILE.brand}<span className="text-primary-400">.</span>
             </a>

@@ -9,7 +9,7 @@ const fadeIn = {
 
 export default function About() {
   return (
-    <section id="about" className="section-padding bg-slate-50 dark:bg-slate-900/50">
+    <section id="about" className="section-padding overflow-x-hidden bg-slate-50 dark:bg-slate-900/50">
       <div className="section-container">
         <motion.div
           variants={fadeIn}
@@ -32,11 +32,11 @@ export default function About() {
             className="flex justify-center"
           >
             <div className="relative">
-              <div className="w-80 sm:w-96 lg:w-[26rem] aspect-[3/4] rounded-[3rem] overflow-hidden shadow-2xl shadow-primary-500/20 animate-float bg-slate-200 dark:bg-slate-800">
+              <div className="w-72 sm:w-96 lg:w-[26rem] max-w-full aspect-[3/4] rounded-[3rem] overflow-hidden shadow-2xl shadow-primary-500/20 animate-float bg-slate-200 dark:bg-slate-800">
                 <img src={`${import.meta.env.BASE_URL}profile.jpg`} alt="Michael Kariuki" className="w-full h-full object-cover object-top" />
               </div>
               {/* Floating badge */}
-              <div className="absolute -bottom-4 -right-4 bg-white dark:bg-slate-900 rounded-2xl px-4 py-2.5 shadow-lg border border-slate-200 dark:border-slate-700 flex items-center gap-2">
+              <div className="absolute -bottom-4 right-2 sm:-right-4 bg-white dark:bg-slate-900 rounded-2xl px-4 py-2.5 shadow-lg border border-slate-200 dark:border-slate-700 flex items-center gap-2">
                 <Coffee className="w-4 h-4 text-amber-500" aria-hidden="true" />
                 <span className="text-sm font-semibold text-slate-800 dark:text-slate-200">Fuelled by coffee</span>
               </div>
