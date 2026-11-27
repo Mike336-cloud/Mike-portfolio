@@ -34,5 +34,5 @@ All personal data, skills, projects, and social links are managed centrally in `
 
 ## Contact
 Email: njugunamichaelkariuki@gmail.com
-LinkedIn: https://linkedin.com/in/michael-kariuki
-GitHub: https://github.com/Mike333-cloud
+LinkedIn: https://www.linkedin.com/in/michael-kariuki-330160318
+GitHub: https://github.com/Mike336-cloud

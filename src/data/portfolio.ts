@@ -19,7 +19,7 @@ export const PROFILE = {
   ],
   socials: {
     github: 'https://github.com/Mike336-cloud',
-    linkedin: 'https://linkedin.com',
+    linkedin: 'https://www.linkedin.com/in/michael-kariuki-330160318',
   },
 };
 
@@ -78,7 +78,7 @@ export const PROJECTS = [
     gradient: 'from-yellow-400 to-amber-600',
     image: `${import.meta.env.BASE_URL}exam-preview.png`,
     github: 'https://github.com/Mike336-cloud',
-    live: 'https://sharks-team-app.vercel.app/',
+    live: 'https://past-exams-app.vercel.app/',
     featured: true,
   },
   {
@@ -89,7 +89,7 @@ export const PROJECTS = [
     gradient: 'from-amber-500 to-orange-600',
     image: `${import.meta.env.BASE_URL}sharks-preview.png`,
     github: 'https://github.com/Mike336-cloud',
-    live: 'https://past-exams-app.vercel.app/',
+    live: 'https://sharks-team-app.vercel.app/',
     featured: true,
   },
 ];
@@ -125,7 +125,7 @@ export const TIMELINE = [
 ];
 
 export const SOCIAL_LINKS = [
-  { label: 'GitHub', href: 'https://github.com/Mike333-cloud', icon: 'Github' },
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/michael-kariuki', icon: 'Linkedin' },
-  { label: 'Email', href: 'mailto:njugunamichaelkariuki@gmail.com', icon: 'Mail' },
+  { label: 'GitHub', href: PROFILE.socials.github, icon: 'Github' },
+  { label: 'LinkedIn', href: PROFILE.socials.linkedin, icon: 'Linkedin' },
+  { label: 'Email', href: `mailto:${PROFILE.email}`, icon: 'Mail' },
 ];
